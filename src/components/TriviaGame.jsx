@@ -297,8 +297,8 @@ const TriviaGame = () => {
         />
         <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-8">
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-light text-white mb-4">Trivia Game</h1>
-            <p className="text-gray-300 text-lg">Choose your category to begin</p>
+            <h1 className="text-5xl font-light text-white mb-4 font-canela">Trivia Game</h1>
+            <p className="text-gray-300 text-lg font-canela">Choose your category to begin</p>
           </div>
           
           <div className="grid grid-cols-3 gap-6 max-w-md">
@@ -311,7 +311,7 @@ const TriviaGame = () => {
                 <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-200">
                   {category.icon}
                 </div>
-                <h3 className="text-sm font-medium text-white">{category.name}</h3>
+                <h3 className="text-sm font-medium text-white font-canela">{category.name}</h3>
               </button>
             ))}
           </div>
@@ -341,21 +341,21 @@ const TriviaGame = () => {
         <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
           <div className={`bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-3xl shadow-2xl p-8 max-w-md w-full text-center transition-all duration-500 ${fadeIn ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
             <div className="text-6xl mb-4">{selectedCat?.icon}</div>
-            <h2 className="text-2xl font-light text-white mb-2">{selectedCat?.name} Complete!</h2>
-            <p className="text-lg text-gray-300 mb-6">{getScoreMessage()}</p>
-            <div className="text-4xl font-light text-indigo-400 mb-8">
+            <h2 className="text-2xl font-light text-white mb-2 font-canela">{selectedCat?.name} Complete!</h2>
+            <p className="text-lg text-gray-300 mb-6 font-canela">{getScoreMessage()}</p>
+            <div className="text-4xl font-light text-indigo-400 mb-8 font-canela">
               {score} / {questions.length}
             </div>
             <div className="space-y-3">
               <button
                 onClick={() => handleCategorySelect(selectedCategory)}
-                className="w-full bg-indigo-600/80 hover:bg-indigo-700/80 text-white px-8 py-3 rounded-full transition-colors duration-200 font-medium"
+                className="w-full bg-indigo-600/80 hover:bg-indigo-700/80 text-white px-8 py-3 rounded-full transition-colors duration-200 font-medium font-canela"
               >
                 Play Again
               </button>
               <button
                 onClick={resetToCategories}
-                className="w-full bg-gray-700/60 hover:bg-gray-600/60 text-gray-200 px-8 py-3 rounded-full transition-colors duration-200 font-medium"
+                className="w-full bg-gray-700/60 hover:bg-gray-600/60 text-gray-200 px-8 py-3 rounded-full transition-colors duration-200 font-medium font-canela"
               >
                 Choose Category
               </button>
@@ -390,13 +390,13 @@ const TriviaGame = () => {
             <div className="flex items-center space-x-3">
               <span className="text-2xl">{selectedCat?.icon}</span>
               <div>
-                <div className="text-sm text-gray-300">{selectedCat?.name}</div>
-                <div className="text-sm text-gray-400">
+                <div className="text-sm text-gray-300 font-canela">{selectedCat?.name}</div>
+                <div className="text-sm text-gray-400 font-canela">
                   Question {currentQuestion + 1} of {questions.length}
                 </div>
               </div>
             </div>
-            <div className="text-sm text-gray-300">
+            <div className="text-sm text-gray-300 font-canela">
               Score: {score}
             </div>
           </div>
@@ -410,7 +410,7 @@ const TriviaGame = () => {
           </div>
 
           {/* Question */}
-          <h2 className="text-2xl font-light text-white mb-8 leading-relaxed">
+          <h2 className="text-2xl font-light text-white mb-8 leading-relaxed font-canela">
             {questions[currentQuestion].question}
           </h2>
 
@@ -420,14 +420,14 @@ const TriviaGame = () => {
               let buttonClass = "w-full p-4 text-left rounded-2xl border-2 transition-all duration-200 ";
               
               if (selectedAnswer === null) {
-                buttonClass += "border-gray-600/50 hover:border-indigo-400/60 hover:bg-gray-700/40 bg-gray-800/30 text-white";
+                buttonClass += "border-gray-600/50 hover:border-indigo-400/60 hover:bg-gray-700/40 bg-gray-800/30 text-white font-canela";
               } else {
                 if (index === questions[currentQuestion].correct) {
-                  buttonClass += "border-green-400/60 bg-green-900/30 text-green-200";
+                  buttonClass += "border-green-400/60 bg-green-900/30 text-green-200 font-canela";
                 } else if (index === selectedAnswer) {
-                  buttonClass += "border-red-400/60 bg-red-900/30 text-red-200";
+                  buttonClass += "border-red-400/60 bg-red-900/30 text-red-200 font-canela";
                 } else {
-                  buttonClass += "border-gray-600/30 bg-gray-800/20 text-gray-400";
+                  buttonClass += "border-gray-600/30 bg-gray-800/20 text-gray-400 font-canela";
                 }
               }
 
@@ -438,7 +438,7 @@ const TriviaGame = () => {
                   className={buttonClass}
                   disabled={selectedAnswer !== null}
                 >
-                  <span className="font-medium">{String.fromCharCode(65 + index)}.</span> {option}
+                  <span className="font-medium font-canela">{String.fromCharCode(65 + index)}.</span> <span className="font-canela">{option}</span>
                 </button>
               );
             })}
@@ -449,7 +449,7 @@ const TriviaGame = () => {
             <div className="text-center">
               <button
                 onClick={nextQuestion}
-                className="bg-indigo-600/80 hover:bg-indigo-700/80 text-white px-8 py-3 rounded-full transition-colors duration-200 font-medium backdrop-blur-sm"
+                className="bg-indigo-600/80 hover:bg-indigo-700/80 text-white px-8 py-3 rounded-full transition-colors duration-200 font-medium backdrop-blur-sm font-canela"
               >
                 {currentQuestion + 1 === questions.length ? 'Finish' : 'Next Question'}
               </button>
