@@ -48,7 +48,7 @@ const TriviaGame = () => {
       description: 'Painting, Music & Culture'
     }
   ];
-
+  
   // Your existing questionBank with all categories...
   const questionBank = {
     // Use all the category data I provided in previous messages
